@@ -58,12 +58,6 @@ void Particao_Mediana(Dados *dados, int Esq, int Dir,int *i, int *j, int k){
     int pivo, aux;
     *i = Esq;
     *j = Dir;
-    if(k == 3){
-        pivo_mediana3(dados, Esq, Dir, &pivo, k);
-    }
-    else if(k == 5){
-        pivo_mediana5(dados, Esq, Dir, &pivo, k);
-    }
     //pivo = dados->vetor[(*i + *j)/2]; /* obtem o pivo  */
     do{ 
         while (pivo > dados->vetor[*i]){
@@ -80,41 +74,5 @@ void Particao_Mediana(Dados *dados, int Esq, int Dir,int *i, int *j, int k){
             (*j)--;
         }
     } while (*i <= *j);
-}
-
-void pivo_mediana3(Dados *dados, int Esq, int Dir, int *pivo, int k){
-    int a, b, c;
-    a = Esq + (rand() % (Dir - Esq +1));
-    b = Esq + (rand() % (Dir - Esq +1));
-    c = Esq + (rand() % (Dir - Esq +1));
-    if(a < b) {
-        if (b < c){
-            (*pivo) = b;
-        }
-        else {
-            if(a < c) {
-                (*pivo) = c;
-            }
-            else{
-                (*pivo) = a;
-            }
-        }
-    }
-    else{
-        if(c < b) {
-            (*pivo) = b;
-        }
-        else{
-            if(c < a) {
-                (*pivo) = c;
-            }
-            else {
-                (*pivo) = a;
-            }
-        }
-    }
-}
-void pivo_mediana5(Dados *dados, int Esq, int Dir, int *pivo, int k){
-    
 }
 
