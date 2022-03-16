@@ -38,7 +38,7 @@ void Particao_Recursivo(Dados *dados, int Esq, int Dir,int *i, int *j){
     } while (*i <= *j);
 }
 
-//Algoritmo QuickSort Mediana(k)
+//Algoritmo QuickSort Mediana
 void QuickSort_Mediana(Dados *dados, int N, int k){
     Ordenacao_Mediana(dados, 0, N - 1, k);
 }
@@ -54,7 +54,7 @@ void Ordenacao_Mediana(Dados *dados, int Esq, int Dir, int k){
     }
 }
 
-void Particao_Mediana(Dados *dados, int Esq, int Dir,int *i, int *j, int k){
+void Particao_Mediana(Dados *dados, int Esq, int Dir, int *i, int *j, int k){
     int pivo, aux;
     *i = Esq;
     *j = Dir;
@@ -76,3 +76,23 @@ void Particao_Mediana(Dados *dados, int Esq, int Dir,int *i, int *j, int k){
     } while (*i <= *j);
 }
 
+void escolha_pivor(Dados *dados, int Esq, int Dir, int *pivor, int k){
+    int vetor_aux[k];
+    int i, j, aux;
+    for(i = 0; i < k; i++){
+        aux =  Esq + (rand() % (Dir - Esq + 1));
+        vetor_aux[i] = dados->vetor[aux];
+    }
+    for(i = 1; i < k; i++){
+        aux = vetor_aux[i];
+        j = i - 1;
+        while ((j >= 0) && (aux < vetor_aux[j])){
+            vetor_aux[j + 1] = vetor_aux[j];
+            j--;
+        }
+        vetor_aux[j+1] = aux;
+    }
+    (*pivor) = vetor_aux[k / 2];
+}
+
+//Algoritmo QuickSort  Insercao

@@ -14,6 +14,10 @@ int main(){
     inicializa_metricas(&dados);
     QuickSort_Recursivo(&dados, N);
     //Algoritmo QuickSort Mediana
+    for(i = 3; i < 8; (i++)){
+        printf("%d\n", i);
+        i++;
+    }
     system("pause");
     return 0;
 }

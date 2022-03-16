@@ -9,6 +9,6 @@ void Particao_Recursivo(Dados *dados, int Esq, int Dir,int *i, int *j);
 void QuickSort_Mediana(Dados *dados, int N, int k);
 void Ordenacao_Mediana(Dados *dados, int Esq, int Dir, int k);
 void Particao_Mediana(Dados *dados, int Esq, int Dir,int *i, int *j, int k);
-
+void escolha_pivor(Dados *dados, int Esq, int Dir, int *pivor, int k);
 
 //Algoritmo QuickSort  Insercao
