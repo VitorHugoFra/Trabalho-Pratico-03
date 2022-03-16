@@ -11,4 +11,4 @@ void Ordenacao_Mediana(Dados *dados, int Esq, int Dir, int k);
 void Particao_Mediana(Dados *dados, int Esq, int Dir,int *i, int *j, int k);
 void escolha_pivor(Dados *dados, int Esq, int Dir, int *pivor, int k);
 
-//Algoritmo QuickSort  Insercao
+// Algoritmo QuickSort  Insercao
