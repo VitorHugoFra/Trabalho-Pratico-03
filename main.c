@@ -6,7 +6,7 @@
 int main(){
     Dados dados;
     int N, i;
-    N = 15;
+    N = 1000;
     srand(time(NULL));
     //cria_vetor(&dados, N);
     //preenche_vetor(&dados, N);

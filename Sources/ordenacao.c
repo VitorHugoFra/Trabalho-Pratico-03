@@ -1,6 +1,6 @@
 #include "../Libs/ordenacao.h"
 
-// Metodo QuickSorte
+// Algoritmo QuickSort Recursivo
 void QuickSort_Recursivo(Dados *dados, int N){
     Ordenacao_Recursivo(dados, 0, N - 1);
 }
@@ -37,3 +37,5 @@ void Particao_Recursivo(Dados *dados, int Esq, int Dir,int *i, int *j){
         }
     } while (*i <= *j);
 }
+
+//Algoritmo QuickSort Mediana(k)
