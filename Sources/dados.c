@@ -10,7 +10,7 @@ void free_vetor(Dados *dados){
 void preenche_vetor(Dados *dados, int N){
     int i, num;
     for(i = 0; i < N; i++){
-        num = rand() % 1000000;
+        num = rand() % 100;
         dados->vetor[i] = num;
     }
 }

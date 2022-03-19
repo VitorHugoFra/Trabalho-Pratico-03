@@ -58,7 +58,7 @@ void Particao_Mediana(Dados *dados, int Esq, int Dir, int *i, int *j, int k){
     int pivo, aux;
     *i = Esq;
     *j = Dir;
-    //pivo = dados->vetor[(*i + *j)/2]; /* obtem o pivo  */
+    pivo = escolha_pivor(dados, Esq, Dir, k);
     do{ 
         while (pivo > dados->vetor[*i]){
             (*i)++;
@@ -76,13 +76,15 @@ void Particao_Mediana(Dados *dados, int Esq, int Dir, int *i, int *j, int k){
     } while (*i <= *j);
 }
 
-void escolha_pivor(Dados *dados, int Esq, int Dir, int *pivor, int k){
+int escolha_pivor(Dados *dados, int Esq, int Dir, int k){
     int vetor_aux[k];
     int i, j, aux;
     for(i = 0; i < k; i++){
         aux =  Esq + (rand() % (Dir - Esq + 1));
         vetor_aux[i] = dados->vetor[aux];
+        printf("%d ", aux);
     }
+    printf("\n");
     for(i = 1; i < k; i++){
         aux = vetor_aux[i];
         j = i - 1;
@@ -92,7 +94,8 @@ void escolha_pivor(Dados *dados, int Esq, int Dir, int *pivor, int k){
         }
         vetor_aux[j+1] = aux;
     }
-    (*pivor) = vetor_aux[k / 2];
+    return (vetor_aux[k / 2]);
 }
 
-//Algoritmo QuickSort  Insercao
+//Algoritmo QuickSort Insercao
+
