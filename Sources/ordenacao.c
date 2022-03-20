@@ -99,3 +99,56 @@ int escolha_pivor(Dados *dados, int Esq, int Dir, int k){
 
 //Algoritmo QuickSort Insercao
 
+void QuickSort_Insercao(Dados *dados, int N, int m){
+    Ordenacao_Insercao(dados, 0, N - 1, m);
+}
+
+void Ordenacao_Insercao(Dados *dados, int Esq, int Dir, int m){
+    int i, j;
+    if(Dir - Esq <= m){
+        int l, r, aux;
+        for(l = Esq; l <= Dir; l++){
+            aux = dados->vetor[l];
+            r = l - 1;
+            while ((r >= 0) && (aux < dados->vetor[r])){
+                dados->vetor[r + 1] = dados->vetor[r];
+                r--;
+            }
+            dados->vetor[r+1] = aux;
+        }
+    }
+    else{
+        Particao_Insercao(dados , Esq, Dir, &i, &j, m);
+        if (Esq < j){
+            Ordenacao_Insercao(dados, Esq, j, m);
+        }
+        if (i < Dir){
+            Ordenacao_Insercao(dados, i, Dir, m);
+        }
+    }
+}
+
+void Particao_Insercao(Dados *dados, int Esq, int Dir,int *i, int *j, int m){
+    int pivo, aux;
+    *i = Esq;
+    *j = Dir;
+    pivo = dados->vetor[(*i + *j)/2]; /* obtem o pivo  */
+    do{ 
+        while (pivo > dados->vetor[*i]){
+            (*i)++;
+        }
+        while (pivo < dados->vetor[*j]){
+            (*j)--;
+        }
+        if (*i <= *j){ 
+            aux = dados->vetor[*i];
+            dados->vetor[*i] = dados->vetor[*j]; 
+            dados->vetor[*j] = aux;
+            (*i)++; 
+            (*j)--;
+        }
+    } while (*i <= *j);
+}
+
+//Quicksort Empilha Inteligente
+

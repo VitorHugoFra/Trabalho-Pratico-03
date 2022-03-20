@@ -5,26 +5,38 @@
 
 int main(){
     Dados dados;
-    int N, i, j;
-    N = 30;
+    int N, i;
+    N = 20;
     srand(time(NULL));
     cria_vetor(&dados, N);
+    //for(i = 0; i< N; i++){
+        //printf("%d ", dados.vetor[i]);
+    //}
+    //printf("\n");
+
+    /*
     //Algoritmo QuickSort Recursivo
     preenche_vetor(&dados, N);
-    //for(j = 0; j < N; j++){
-       // printf("%d ", dados.vetor[j]);
-   // }
-    printf("\n");
     inicializa_metricas(&dados);
     QuickSort_Recursivo(&dados, N);
     //Algoritmo QuickSort Mediana
-    for(i = 3; i < 6; (i++)){
+    int k = 3;
+    for(i = 0; i < 2; (i++)){
         preenche_vetor(&dados, N);
         inicializa_metricas(&dados);
-        QuickSort_Mediana(&dados, N, i);
-        i++;
+        QuickSort_Mediana(&dados, N, k);
+        k = 5;
     }
     // Algoritmo QuickSort  Insercao
+    int m = 10;
+    for(i = 0; i < 2; (i++)){
+        preenche_vetor(&dados, N);
+        inicializa_metricas(&dados);
+        QuickSort_Insercao(&dados, N, m);
+        m = 100;
+    }
+    */
+
     system("pause");
     return 0;
 }

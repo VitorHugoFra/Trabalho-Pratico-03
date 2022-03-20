@@ -13,5 +13,10 @@ int escolha_pivor(Dados *dados, int Esq, int Dir, int k);
 
 // Algoritmo QuickSort  Insercao
 void QuickSort_Insercao(Dados *dados, int N, int m);
-void Ordenacao_insercao(Dados *dados, int Esq, int Dir, int m);
+void Ordenacao_Insercao(Dados *dados, int Esq, int Dir, int m);
 void Particao_Insercao(Dados *dados, int Esq, int Dir,int *i, int *j, int m);
+
+//Quicksort Empilha Inteligente
+void QuickSort_EmpilhaInteligente(Dados *dados, int N);
+void Ordenacao_EmpilhaInteligente(Dados *dados, int Esq, int Dir);
+void Particao_EmpilhaInteligente(Dados *dados, int Esq, int Dir,int *i, int *j);
