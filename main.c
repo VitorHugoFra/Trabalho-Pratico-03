@@ -35,20 +35,28 @@ int main(){
         QuickSort_Insercao(&dados, N, m);
         m = 100;
     }
-    */
-   //Quicksort Empilha Inteligente
+    
+   //Algoritmo Quicksort Empilha Inteligente
+    preenche_vetor(&dados, N);
+    inicializa_metricas(&dados);
+    QuickSort_EmpilhaInteligente(&dados, N);
+    for(i = 0; i< N; i++){
+        printf("%d ", dados.vetor[i]);
+    }
+    printf("\n");*/
+
+    //Algoritmo Quicksort Iterativo
     preenche_vetor(&dados, N);
     for(i = 0; i< N; i++){
         printf("%d ", dados.vetor[i]);
     }
     printf("\n");
     inicializa_metricas(&dados);
-    QuickSort_EmpilhaInteligente(&dados, N);
+    QuickSort_Iterativo(&dados, N);
     for(i = 0; i< N; i++){
         printf("%d ", dados.vetor[i]);
     }
     printf("\n");
-
     system("pause");
     return 0;
 }

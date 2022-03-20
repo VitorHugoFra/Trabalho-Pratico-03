@@ -16,7 +16,13 @@ void QuickSort_Insercao(Dados *dados, int N, int m);
 void Ordenacao_Insercao(Dados *dados, int Esq, int Dir, int m);
 void Particao_Insercao(Dados *dados, int Esq, int Dir,int *i, int *j, int m);
 
-//Quicksort Empilha Inteligente
+// Algoritmo Quicksort Empilha Inteligente
 void QuickSort_EmpilhaInteligente(Dados *dados, int N);
 void Ordenacao_EmpilhaInteligente(Dados *dados, int Esq, int Dir);
 void Particao_EmpilhaInteligente(Dados *dados, int Esq, int Dir,int *i, int *j);
+
+//vAlgoritmo Quicksort Iterativo
+
+void QuickSort_Iterativo(Dados *dados, int N);
+void Ordenacao_Iterativo(Dados *dados, int Esq, int Dir);
+void Particao_Iterativo(Dados *dados, int Esq, int Dir, int *i, int *j);

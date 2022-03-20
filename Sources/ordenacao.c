@@ -150,7 +150,7 @@ void Particao_Insercao(Dados *dados, int Esq, int Dir,int *i, int *j, int m){
     } while (*i <= *j);
 }
 
-//Quicksort Empilha Inteligente
+//Algoritmo Quicksort Empilha Inteligente
 void QuickSort_EmpilhaInteligente(Dados *dados, int N){
     Ordenacao_EmpilhaInteligente(dados, 0, N - 1);
 }
@@ -198,3 +198,4 @@ void Particao_EmpilhaInteligente(Dados *dados, int Esq, int Dir,int *i, int *j){
     } while (*i <= *j);
 }
 
+//Algoritmo Quicksort Iterativo
