@@ -151,4 +151,50 @@ void Particao_Insercao(Dados *dados, int Esq, int Dir,int *i, int *j, int m){
 }
 
 //Quicksort Empilha Inteligente
+void QuickSort_EmpilhaInteligente(Dados *dados, int N){
+    Ordenacao_EmpilhaInteligente(dados, 0, N - 1);
+}
+
+void Ordenacao_EmpilhaInteligente(Dados *dados, int Esq, int Dir){
+    int i, j;
+    Particao_EmpilhaInteligente(dados , Esq, Dir, &i, &j);
+    if((j - Esq + 1) <= ( Dir - j + 1)){
+        if(Esq < j){
+            Ordenacao_EmpilhaInteligente(dados, Esq, j);
+        }
+        if(i < Dir){
+            Ordenacao_EmpilhaInteligente(dados, i, Dir);
+        }
+    }
+    else{
+        if(i < Dir){
+            Ordenacao_EmpilhaInteligente(dados, i, Dir);
+        }
+        if(Esq < j){
+            Ordenacao_EmpilhaInteligente(dados, Esq, j);
+        }
+    }
+}
+
+void Particao_EmpilhaInteligente(Dados *dados, int Esq, int Dir,int *i, int *j){
+    int pivo, aux;
+    *i = Esq;
+    *j = Dir;
+    pivo = dados->vetor[(*i + *j)/2]; /* obtem o pivo  */
+    do{ 
+        while (pivo > dados->vetor[*i]){
+            (*i)++;
+        }
+        while (pivo < dados->vetor[*j]){
+            (*j)--;
+        }
+        if (*i <= *j){ 
+            aux = dados->vetor[*i];
+            dados->vetor[*i] = dados->vetor[*j]; 
+            dados->vetor[*j] = aux;
+            (*i)++; 
+            (*j)--;
+        }
+    } while (*i <= *j);
+}
 

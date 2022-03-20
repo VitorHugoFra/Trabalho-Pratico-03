@@ -36,6 +36,18 @@ int main(){
         m = 100;
     }
     */
+   //Quicksort Empilha Inteligente
+    preenche_vetor(&dados, N);
+    for(i = 0; i< N; i++){
+        printf("%d ", dados.vetor[i]);
+    }
+    printf("\n");
+    inicializa_metricas(&dados);
+    QuickSort_EmpilhaInteligente(&dados, N);
+    for(i = 0; i< N; i++){
+        printf("%d ", dados.vetor[i]);
+    }
+    printf("\n");
 
     system("pause");
     return 0;
