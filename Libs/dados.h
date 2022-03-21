@@ -6,7 +6,7 @@ typedef struct{
     int *vetor;
     int comparacoes;
     int movimentacoes;
-    float tempo;
+    //float tempo;
 }Dados;
 
 void cria_vetor(Dados *dados, int N);

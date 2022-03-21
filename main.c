@@ -7,6 +7,13 @@ int main(){
     Dados dados;
     int N, i;
     N = 20;
+    //  Função Para medir o tempo de execução de cada algoritmo, 
+    // precisa ser colocada nós lugares certos
+    clock_t tempo_execucao;
+    tempo_execucao = clock();
+    tempo_execucao =  clock() - tempo_execucao;
+
+
     srand(time(NULL));
     cria_vetor(&dados, N);
     //for(i = 0; i< N; i++){

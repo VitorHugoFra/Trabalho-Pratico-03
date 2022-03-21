@@ -18,5 +18,5 @@ void preenche_vetor(Dados *dados, int N){
 void inicializa_metricas(Dados *dados){
     dados->comparacoes = 0;
     dados->movimentacoes = 0;
-    dados->tempo = 0.0;
+    //dados->tempo = 0.0;
 }
