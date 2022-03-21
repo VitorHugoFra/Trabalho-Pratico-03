@@ -21,7 +21,7 @@ void Particao_Recursivo(Dados *dados, int Esq, int Dir,int *i, int *j){
     *i = Esq;
     *j = Dir;
     pivo = dados->vetor[(*i + *j)/2]; /* obtem o pivo  */
-    do{ 
+    do{
         while (pivo > dados->vetor[*i]){
             (*i)++;
         }
@@ -150,7 +150,7 @@ void Particao_Insercao(Dados *dados, int Esq, int Dir,int *i, int *j, int m){
     } while (*i <= *j);
 }
 
-//Algoritmo Quicksort Empilha Inteligente
+//Algoritmo QuickSort Empilha Inteligente
 void QuickSort_EmpilhaInteligente(Dados *dados, int N){
     Ordenacao_EmpilhaInteligente(dados, 0, N - 1);
 }
@@ -198,4 +198,91 @@ void Particao_EmpilhaInteligente(Dados *dados, int Esq, int Dir,int *i, int *j){
     } while (*i <= *j);
 }
 
-//Algoritmo Quicksort Iterativo
+//Algoritmo QuickSort Iterativo
+
+void QuickSort_Iterativo(Dados *dados, int N){
+    Ordenacao_Iterativo(dados, 0, N - 1);
+}
+
+void Ordenacao_Iterativo(Dados *dados, int Esq, int Dir){
+    int i, j, *pilha_Esq, *pilha_Dir;
+    int **pilha_i, **pilha_j;
+    pilha_Esq = (int*)malloc((Dir + 1) * sizeof (int));
+    pilha_Dir = (int*)malloc((Dir + 1) * sizeof (int));
+    pilha_i = (int**)calloc((Dir + 1), sizeof (int*));
+    pilha_j = (int**)calloc((Dir + 1), sizeof (int*));
+    for(int k = 0; k <= Dir; k++){
+        pilha_i[k] = (int*)calloc(2, sizeof (int));
+        pilha_j[k] = (int*)calloc(2, sizeof (int)); 
+    }
+    Particao_Iterativo(dados, Esq, Dir, &i, &j);
+    pilha_Esq[0] = Esq;
+    pilha_Dir[0] = Dir;
+    int t = 0;
+    while(1){
+        Particao_Iterativo(dados, Esq, Dir, &i, &j);
+        Esq = pilha_Esq[t];
+        Dir = pilha_Dir[t];
+        pilha_i[t][0] = i;
+        pilha_j[t][0] = j;
+        
+        if((pilha_j[t][1] == 0) && (Esq < pilha_j[t][0])){
+            pilha_j[t][1] = 1;
+            ++t;
+            pilha_Esq[t] = Esq;
+            pilha_Dir[t] = j;
+        }
+        else{
+            if((pilha_i[t][1] == 0) && (pilha_i[t][0] < Dir)){
+                pilha_i[t][1] = 1;
+                ++t;
+                pilha_Esq[t] = i;
+                pilha_Dir[t] = Dir;
+            }
+            else{
+                pilha_i[t][1] = 0;
+                pilha_j[t][1] = 0;
+                --t;
+            } 
+        }
+        if(t < 0){
+            break;
+        }
+    }
+}
+
+void Particao_Iterativo(Dados *dados, int Esq, int Dir, int *i, int *j){
+    int pivo, aux;
+    *i = Esq;
+    *j = Dir;
+    pivo = dados->vetor[(*i + *j)/2]; /* obtem o pivo  */
+    printf("----------------------->%d<-------------------------\n", pivo);
+    for(int a = Esq; a <= Dir; a++){
+        printf("%d ", dados->vetor[a]);
+    }
+    printf("\n");
+    do{
+        for(int a = Esq; a <= Dir; a++){
+            printf("%d ", dados->vetor[a]);
+        }
+        printf("\n");
+        while (pivo > dados->vetor[*i]){
+            (*i)++;
+        }
+        while (pivo < dados->vetor[*j]){
+            (*j)--;
+        }
+        if (*i <= *j){ 
+            aux = dados->vetor[*i];
+            dados->vetor[*i] = dados->vetor[*j]; 
+            dados->vetor[*j] = aux;
+            (*i)++; 
+            (*j)--;
+        }
+    } while (*i <= *j);
+    for(int a = Esq; a <= Dir; a++){
+        printf("%d ", dados->vetor[a]);
+    }
+    printf("\n");
+}
+

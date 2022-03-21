@@ -36,7 +36,7 @@ int main(){
         m = 100;
     }
     
-   //Algoritmo Quicksort Empilha Inteligente
+   //Algoritmo QuickSort Empilha Inteligente
     preenche_vetor(&dados, N);
     inicializa_metricas(&dados);
     QuickSort_EmpilhaInteligente(&dados, N);
@@ -45,18 +45,18 @@ int main(){
     }
     printf("\n");*/
 
-    //Algoritmo Quicksort Iterativo
+    //Algoritmo QuickSort Iterativo
     preenche_vetor(&dados, N);
     for(i = 0; i< N; i++){
         printf("%d ", dados.vetor[i]);
     }
-    printf("\n");
+    printf("\n\n");
     inicializa_metricas(&dados);
     QuickSort_Iterativo(&dados, N);
     for(i = 0; i< N; i++){
         printf("%d ", dados.vetor[i]);
     }
-    printf("\n");
+    printf("\n\n");
     system("pause");
     return 0;
 }
