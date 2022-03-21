@@ -215,17 +215,15 @@ void Ordenacao_Iterativo(Dados *dados, int Esq, int Dir){
         pilha_i[k] = (int*)calloc(2, sizeof (int));
         pilha_j[k] = (int*)calloc(2, sizeof (int)); 
     }
-    Particao_Iterativo(dados, Esq, Dir, &i, &j);
     pilha_Esq[0] = Esq;
     pilha_Dir[0] = Dir;
     int t = 0;
     while(1){
-        Particao_Iterativo(dados, Esq, Dir, &i, &j);
         Esq = pilha_Esq[t];
         Dir = pilha_Dir[t];
+        Particao_Iterativo(dados, Esq, Dir, &i, &j);
         pilha_i[t][0] = i;
         pilha_j[t][0] = j;
-        
         if((pilha_j[t][1] == 0) && (Esq < pilha_j[t][0])){
             pilha_j[t][1] = 1;
             ++t;
@@ -256,16 +254,7 @@ void Particao_Iterativo(Dados *dados, int Esq, int Dir, int *i, int *j){
     *i = Esq;
     *j = Dir;
     pivo = dados->vetor[(*i + *j)/2]; /* obtem o pivo  */
-    printf("----------------------->%d<-------------------------\n", pivo);
-    for(int a = Esq; a <= Dir; a++){
-        printf("%d ", dados->vetor[a]);
-    }
-    printf("\n");
     do{
-        for(int a = Esq; a <= Dir; a++){
-            printf("%d ", dados->vetor[a]);
-        }
-        printf("\n");
         while (pivo > dados->vetor[*i]){
             (*i)++;
         }
@@ -280,9 +269,5 @@ void Particao_Iterativo(Dados *dados, int Esq, int Dir, int *i, int *j){
             (*j)--;
         }
     } while (*i <= *j);
-    for(int a = Esq; a <= Dir; a++){
-        printf("%d ", dados->vetor[a]);
-    }
-    printf("\n");
 }
 

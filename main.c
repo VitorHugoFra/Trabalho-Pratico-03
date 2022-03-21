@@ -50,13 +50,13 @@ int main(){
     for(i = 0; i< N; i++){
         printf("%d ", dados.vetor[i]);
     }
-    printf("\n\n");
+    printf("\n");
     inicializa_metricas(&dados);
     QuickSort_Iterativo(&dados, N);
     for(i = 0; i< N; i++){
         printf("%d ", dados.vetor[i]);
     }
-    printf("\n\n");
+    printf("\n");
     system("pause");
     return 0;
 }
