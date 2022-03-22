@@ -12,6 +12,7 @@ int main(){
     //printf("Comparacoes =    %d\n", dados.comparacoes);
     //printf("Movimentacoes =  %d\n", dados.movimentacoes);
     //printf("Tempo execucao = %f\n", (((float)tempo_execucao) / (float)CLOCKS_PER_SEC / 1000));
+    
     srand(time(NULL));
     cria_vetor(&dados, N);
 
