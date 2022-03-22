@@ -3,7 +3,16 @@
 #include <time.h>
 #include "Libs/ordenacao.h"
 
-int main(){
+/*
+ * Trabalho Ptático 03 - AEDS 1 
+ * Professora Thais R. M. Braga Silva
+ * Universidade Federal de Virçosa - Campus Florestal
+ * @author Aymê Faustino dos Santos - Vitor Hugo França de Paula - Iury Martins Pereira
+ * @version 0.1
+ * @since 25 de mar
+*/
+
+int main(int argc, char *argv[]){
     Dados dados;
     clock_t tempo_execucao;
     int N, i, j, n;
@@ -22,6 +31,14 @@ int main(){
         //Algoritmo QuickSort Recursivo
         preenche_vetor(&dados, N);
         inicializa_metricas(&dados);
+
+        //ver se parametros foram passados
+        if(argc > 1){
+            inicializa_metricas(&dados, argv[2]);
+        }else{
+            printf("Parametros não foram passados");
+        }
+
         tempo_execucao = clock();
         QuickSort_Recursivo(&dados, N);
         tempo_execucao =  clock() - tempo_execucao;
