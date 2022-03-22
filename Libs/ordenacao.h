@@ -22,12 +22,6 @@ void Ordenacao_EmpilhaInteligente(Dados *dados, int Esq, int Dir);
 void Particao_EmpilhaInteligente(Dados *dados, int Esq, int Dir,int *i, int *j);
 
 // Algoritmo QuickSort Iterativo
-/*
 void QuickSort_Iterativo(Dados *dados, int N);
 void Ordenacao_Iterativo(Dados *dados, int Esq, int Dir);
-void Particao_Iterativo(Dados *dados, int Esq, int Dir, int *i, int *j);
-*/
-void QuickSort_Iterativo(Dados *dados, int N);
-void Ordenacao_Iterativo(Dados *dados, int Esq, int Dir);
-//int Particao_Iterativo(Dados *dados, int p, int r);
 void Particao_Iterativo(Dados *dados, int Esq, int Dir,int *i, int *j);

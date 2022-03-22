@@ -8,9 +8,11 @@ void QuickSort_Recursivo(Dados *dados, int N){
 void Ordenacao_Recursivo(Dados *dados, int Esq, int Dir){ 
     int i, j;
     Particao_Recursivo(dados , Esq, Dir, &i, &j);
+    dados->comparacoes ++;
     if (Esq < j){
         Ordenacao_Recursivo(dados, Esq, j);
     }
+    dados->comparacoes ++;
     if (i < Dir){
         Ordenacao_Recursivo(dados, i, Dir);
     }
@@ -22,19 +24,26 @@ void Particao_Recursivo(Dados *dados, int Esq, int Dir,int *i, int *j){
     *j = Dir;
     pivo = dados->vetor[(*i + *j)/2]; /* obtem o pivo  */
     do{
+        dados->comparacoes++;
         while (pivo > dados->vetor[*i]){
+            dados->comparacoes++;
             (*i)++;
         }
+        dados->comparacoes++;
         while (pivo < dados->vetor[*j]){
+            dados->comparacoes++;
             (*j)--;
         }
+        dados->comparacoes++;
         if (*i <= *j){ 
             aux = dados->vetor[*i];
             dados->vetor[*i] = dados->vetor[*j]; 
             dados->vetor[*j] = aux;
+            dados->movimentacoes++;
             (*i)++; 
             (*j)--;
         }
+        dados->comparacoes++;
     } while (*i <= *j);
 }
 
@@ -82,9 +91,7 @@ int escolha_pivor(Dados *dados, int Esq, int Dir, int k){
     for(i = 0; i < k; i++){
         aux =  Esq + (rand() % (Dir - Esq + 1));
         vetor_aux[i] = dados->vetor[aux];
-        printf("%d ", aux);
     }
-    printf("\n");
     for(i = 1; i < k; i++){
         aux = vetor_aux[i];
         j = i - 1;
@@ -226,21 +233,21 @@ void Ordenacao_Iterativo(Dados *dados, int Esq, int Dir){
         pilha_j[t][0] = j;
         if((pilha_j[t][1] == 0) && (Esq < pilha_j[t][0])){
             pilha_j[t][1] = 1;
-            ++t;
+            t++;
             pilha_Esq[t] = Esq;
             pilha_Dir[t] = j;
         }
         else{
             if((pilha_i[t][1] == 0) && (pilha_i[t][0] < Dir)){
                 pilha_i[t][1] = 1;
-                ++t;
+                t++;
                 pilha_Esq[t] = i;
                 pilha_Dir[t] = Dir;
             }
             else{
                 pilha_i[t][1] = 0;
                 pilha_j[t][1] = 0;
-                --t;
+                t--;
             } 
         }
         if(t < 0){
