@@ -21,7 +21,7 @@ void inicializa_metricas(Dados *dados){
     //dados->tempo = 0.0;
 }
 
-
+/*
 void escreve_arquivo(Dados *dados, int N){
     FILE *arquivo;
     arquivo = fopen(dados->arq,"a");// Modo de gravação adicionando ao final de um arquivo ou criando
@@ -29,16 +29,19 @@ void escreve_arquivo(Dados *dados, int N){
     //verificar se foi aberto
     if(!arquivo){
         printf("Erro na abertura do arquivo\n");
-    }else{
-        printf("Arquivo aberto com sucesso\n");
     }
+    //else{
+    //    printf("Arquivo aberto com sucesso\n");
+    //}
 
 
-    fprintf( arquivo , "%d\n", N ) ;
-    fprintf ( arquivo , "%d,%d,%d \n", dados->tempo, dados->comparacoes, dados->movimentacoes );
+    fprintf( arquivo , "%d\n", N );
+    fprintf ( arquivo , "%f,%d,%d \n", dados->tempo, dados->comparacoes, dados->movimentacoes );
 
     fclose(arquivo);
 }
+*/
+
 void ler_arquivo(Dados *dados){
     FILE *arquivo;
     arquivo = fopen(dados->arq,"w");
@@ -49,3 +52,5 @@ void ler_arquivo(Dados *dados){
     }else{
         printf("Arquivo aberto com sucesso\n");
     }
+}
+
