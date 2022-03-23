@@ -31,7 +31,7 @@ int main(int argc, char *argv[]){
     FILE *arquivo;
     arquivo = fopen(nome_arq_saida,"a");// Modo de gravação adicionando ao final de um arquivo ou criando
     
-    //verificar se foi aberto
+    //Verificar se foi aberto o arquivo
     if(!arquivo){
         printf("Erro na abertura do arquivo\n");
         return 0;
