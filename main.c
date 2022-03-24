@@ -23,24 +23,24 @@ int main(int argc, char *argv[]){
     int valores_n[7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
 
     if(argc < 3){
-        printf("Nao foram passados todos os parametros");
+        printf("\n\t**ERRO** Nao foram passados todos os parametros\n");
         return 0;
     }
     semente = atoi(argv[1]);
     strcpy(nome_arq_saida, argv[2]);
     FILE *arquivo;
-    arquivo = fopen(nome_arq_saida,"a");// Modo de gravação adicionando ao final de um arquivo ou criando
+    arquivo = fopen(nome_arq_saida,"w+");// Modo de gravação adicionando ao final de um arquivo ou criando
     
     //Verificar se foi aberto o arquivo
     if(!arquivo){
-        printf("Erro na abertura do arquivo\n");
+        printf("\n\t**ERRO** na abertura do arquivo\n");
         return 0;
     }
     srand(semente);
     for(n = 0; n < 7; n++){
         N = valores_n[n];
         cria_vetor(&dados, N);
-        fprintf( arquivo , "%d ", N );
+        fprintf( arquivo , "%d,", N );
 
         //Algoritmo QuickSort Recursivo
         preenche_vetor(&dados, N);
@@ -49,8 +49,8 @@ int main(int argc, char *argv[]){
         QuickSort_Recursivo(&dados, N);
         tempo_execucao = clock() - tempo_execucao;
         tempo = (((float)tempo_execucao) / (float)CLOCKS_PER_SEC / 1000);
-        fprintf( arquivo , "%f,%d,%d ", tempo, dados.comparacoes, dados.movimentacoes );
-
+        fprintf( arquivo , "(%f,%d,%d)", tempo, dados.comparacoes, dados.movimentacoes );
+        
         // Algoritmo QuickSort Mediana
         int k = 3;
         for(i = 0; i < 2; (i++)){
@@ -60,7 +60,7 @@ int main(int argc, char *argv[]){
             QuickSort_Mediana(&dados, N, k);
             tempo_execucao =  clock() - tempo_execucao;
             tempo = (((float)tempo_execucao) / (float)CLOCKS_PER_SEC / 1000);
-            fprintf( arquivo , "%f,%d,%d ", tempo, dados.comparacoes, dados.movimentacoes );
+            fprintf( arquivo , "(%f,%d,%d)", tempo, dados.comparacoes, dados.movimentacoes );
             k = 5;
 
         }
@@ -74,7 +74,7 @@ int main(int argc, char *argv[]){
             QuickSort_Insercao(&dados, N, m);
             tempo_execucao =  clock() - tempo_execucao;
             tempo = (((float)tempo_execucao) / (float)CLOCKS_PER_SEC / 1000);
-            fprintf( arquivo , "%f,%d,%d ", tempo, dados.comparacoes, dados.movimentacoes );
+            fprintf( arquivo , "(%f,%d,%d)", tempo, dados.comparacoes, dados.movimentacoes );
             m = 100;
 
         }
@@ -86,7 +86,7 @@ int main(int argc, char *argv[]){
         QuickSort_EmpilhaInteligente(&dados, N);
         tempo_execucao =  clock() - tempo_execucao;
         tempo = (((float)tempo_execucao) / (float)CLOCKS_PER_SEC / 1000);
-        fprintf( arquivo , "%f,%d,%d ", tempo, dados.comparacoes, dados.movimentacoes );
+        fprintf( arquivo , "(%f,%d,%d)", tempo, dados.comparacoes, dados.movimentacoes );
 
 
         //Algoritmo QuickSort Iterativo
@@ -97,14 +97,44 @@ int main(int argc, char *argv[]){
         tempo_execucao =  clock() - tempo_execucao;
         printf("Tempo execucao = %f\n", (((float)tempo_execucao) / (float)CLOCKS_PER_SEC / 1000));
         tempo = (((float)tempo_execucao) / (float)CLOCKS_PER_SEC / 1000);
-        fprintf( arquivo , "%f,%d,%d ", tempo, dados.comparacoes, dados.movimentacoes );
+        fprintf( arquivo , "(%f,%d,%d)", tempo, dados.comparacoes, dados.movimentacoes );
 
-        fprintf( arquivo , "\n", N );
+        fprintf( arquivo , "\n");
         free_vetor(&dados);
 
     }
-
     fclose(arquivo);
+    ler_arquivo(argv[2]);
+       
+    
+
+ /* N = 0;
+    float tempo1[5];
+    int comparacoes[5], movimentacoes[5];
+    arquivo = fopen(argv[2],"r");
+    
+    //Verificar se foi aberto o arquivo
+    if(!arquivo){
+        printf("Erro na abertura do arquivo\n");
+    }
+    
+    while(!feof(arquivo)){
+       
+        if(fscanf(arquivo,"%d,", &N) != EOF){
+        
+            printf("N= %d\n", N );
+
+            for(int i = 0; i < 7; i++){
+                fscanf(arquivo,"(%f,%d,%d)", &tempo1[i], &comparacoes[i], &movimentacoes[i]);
+                printf("(%f,%d,%d)", tempo1[i], comparacoes[i], movimentacoes[i]);
+            }
+            
+            printf("\n");
+        }
+        
+    }
+
+    fclose(arquivo);*/
     system("pause");
     return 0;
 }
