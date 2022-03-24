@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
     float tempo;
     int semente;
     char nome_arq_saida[100];
-    int valores_n[7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
+    int valores_n[Tam_Valores_N] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
 
     if(argc < 3){
         printf("\n\t**ERRO** Nao foram passados todos os parametros\n");

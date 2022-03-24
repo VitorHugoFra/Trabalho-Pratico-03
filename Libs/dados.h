@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#define Tam_Valores_N 7
+
 
 typedef struct{
     int *vetor;
@@ -19,4 +21,3 @@ void inicializa_metricas(Dados *dados);
 //métodos relacionados à arquivos
 //void escreve_arquivo(Dados *dados, int N);
 void ler_arquivo( char *argv);
-void ler_arquivo1( char *argv);
