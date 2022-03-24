@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
     int N, i, j, n;
     float tempo;
     int semente;
-    char nome_arq_saida[100];
+    char arq_saida[100];
     int valores_n[Tam_Valores_N] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
 
     if(argc < 3){
@@ -27,9 +27,16 @@ int main(int argc, char *argv[]){
         return 0;
     }
     semente = atoi(argv[1]);
-    strcpy(nome_arq_saida, argv[2]);
+    strcpy(arq_saida, argv[2]);
+
+    FILE *arq_aux;
+    arq_aux = fopen("nomes_arqs_saida.txt", "a");
+    fputs(arq_saida, arq_aux);
+    fprintf(arq_aux, "\n");
+    fclose(arq_aux);
+
     FILE *arquivo;
-    arquivo = fopen(nome_arq_saida,"w+");// Modo de gravação adicionando ao final de um arquivo ou criando
+    arquivo = fopen(arq_saida,"w+");// Modo de gravação adicionando ao final de um arquivo ou criando
     
     //Verificar se foi aberto o arquivo
     if(!arquivo){
