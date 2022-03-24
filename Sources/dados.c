@@ -45,8 +45,8 @@ void escreve_arquivo(Dados *dados, int N){
 void ler_arquivo( char *argv){
     FILE *arquivo;
     int N = 0;
-    float tempo[5];
-    int comparacoes[5], movimentacoes[5];
+    float tempo[7];
+    int comparacoes[7], movimentacoes[7];
     arquivo = fopen(argv,"r");
     
     //Verificar se foi aberto o arquivo
@@ -55,7 +55,7 @@ void ler_arquivo( char *argv){
     }
     
     while(!feof(arquivo)){
-       
+
         if(fscanf(arquivo,"%d,", &N) != EOF){
         
             printf("N= %d\n", N );
@@ -63,14 +63,17 @@ void ler_arquivo( char *argv){
             for(int i = 0; i < 7; i++){
                 fscanf(arquivo,"(%f,%d,%d)", &tempo[i], &comparacoes[i], &movimentacoes[i]);
                 printf("(%f,%d,%d)", tempo[i], comparacoes[i], movimentacoes[i]);
+                
+                if(feof(arquivo) == 1){
+                    exit(1);
+                }
             }
             
             printf("\n");
         }
-        
+
     }
 
     fclose(arquivo);
 
 }
-

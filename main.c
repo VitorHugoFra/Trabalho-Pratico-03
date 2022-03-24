@@ -104,37 +104,8 @@ int main(int argc, char *argv[]){
 
     }
     fclose(arquivo);
-    ler_arquivo(argv[2]);
-       
-    
+    ler_arquivo(argv[2]);       
 
- /* N = 0;
-    float tempo1[5];
-    int comparacoes[5], movimentacoes[5];
-    arquivo = fopen(argv[2],"r");
-    
-    //Verificar se foi aberto o arquivo
-    if(!arquivo){
-        printf("Erro na abertura do arquivo\n");
-    }
-    
-    while(!feof(arquivo)){
-       
-        if(fscanf(arquivo,"%d,", &N) != EOF){
-        
-            printf("N= %d\n", N );
-
-            for(int i = 0; i < 7; i++){
-                fscanf(arquivo,"(%f,%d,%d)", &tempo1[i], &comparacoes[i], &movimentacoes[i]);
-                printf("(%f,%d,%d)", tempo1[i], comparacoes[i], movimentacoes[i]);
-            }
-            
-            printf("\n");
-        }
-        
-    }
-
-    fclose(arquivo);*/
-    system("pause");
+    //system("pause");
     return 0;
 }

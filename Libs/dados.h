@@ -19,3 +19,4 @@ void inicializa_metricas(Dados *dados);
 //métodos relacionados à arquivos
 //void escreve_arquivo(Dados *dados, int N);
 void ler_arquivo( char *argv);
+void ler_arquivo1( char *argv);
