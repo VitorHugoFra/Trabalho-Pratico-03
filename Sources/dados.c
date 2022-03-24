@@ -42,15 +42,35 @@ void escreve_arquivo(Dados *dados, int N){
 }
 */
 
-void ler_arquivo(Dados *dados){
+void ler_arquivo( char *argv){
     FILE *arquivo;
-    arquivo = fopen(dados->arq,"w");
+    int N = 0;
+    float tempo[5];
+    int comparacoes[5], movimentacoes[5];
+    arquivo = fopen(argv,"r");
     
-    //verificar se foi aberto
+    //Verificar se foi aberto o arquivo
     if(!arquivo){
         printf("Erro na abertura do arquivo\n");
-    }else{
-        printf("Arquivo aberto com sucesso\n");
     }
+    
+    while(!feof(arquivo)){
+       
+        if(fscanf(arquivo,"%d,", &N) != EOF){
+        
+            printf("N= %d\n", N );
+
+            for(int i = 0; i < 7; i++){
+                fscanf(arquivo,"(%f,%d,%d)", &tempo[i], &comparacoes[i], &movimentacoes[i]);
+                printf("(%f,%d,%d)", tempo[i], comparacoes[i], movimentacoes[i]);
+            }
+            
+            printf("\n");
+        }
+        
+    }
+
+    fclose(arquivo);
+
 }
 

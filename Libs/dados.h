@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include <string.h>
 
 typedef struct{
     int *vetor;
@@ -16,4 +18,4 @@ void inicializa_metricas(Dados *dados);
 
 //métodos relacionados à arquivos
 //void escreve_arquivo(Dados *dados, int N);
-void ler_arquivo(Dados *dados);
+void ler_arquivo( char *argv);
