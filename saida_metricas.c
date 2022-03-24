@@ -48,7 +48,8 @@ int main(){
     fclose(arquivo);
 
     char variacao_quicksort[7];
-    
+    //variacao_quicksort = {"QuickSort Recursivo", "QuickSort Mediana 3", "QuickSort Mediana 5",
+     //"QuickSort Insercao 10", "QuickSort Insercao 100", "QuickSort Empilha Inteligente", "QuickSort Iterativo"}
 
     for(i = 0; i < 7; i++){
         free(soma_tempo[i]);
