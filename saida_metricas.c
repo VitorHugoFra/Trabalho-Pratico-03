@@ -8,7 +8,9 @@ int main(){
     float **soma_tempo, aux_tem;
     int **soma_comparacoes, **soma_movimentacoes;
     int aux_com, aux_mov, total_arq, i, j;
-    char nome_arq[100];
+    char *nome_arq;
+   
+
     soma_tempo = (float**)malloc(7 * sizeof(float*));
     soma_comparacoes = (int**)malloc(7 * sizeof(int*));
     soma_movimentacoes = (int**)malloc(7 * sizeof(int*));
@@ -17,7 +19,6 @@ int main(){
         soma_comparacoes[i] = (int*)calloc(7, sizeof(int));
         soma_movimentacoes[i] = (int*)calloc(7, sizeof(int));
     }
-
     arquivo = fopen("nomes_arqs_saida.txt","r");
     //Verificar se foi aberto o arquivo
     if(arquivo == NULL){
@@ -25,7 +26,9 @@ int main(){
         exit(0);
     }
     total_arq = 0;
-    while(fgets(nome_arq, 100, arquivo) != NULL){
+
+    while(fscanf(arquivo, "%s\n",nome_arq ) != -1){
+        printf("%s\n",nome_arq);
         arq = fopen(nome_arq, "r");
         total_arq++;
         if(arq == NULL){
@@ -33,9 +36,11 @@ int main(){
             exit(0);
         }
         i = 0;
-        while(!feof(arq)){
+        while(!feof(arq) && i < 7){
+            printf("%d\n", i);
             fscanf(arquivo,"%d,", &N[i]);
             for(j = 0; j < 7; j++){
+                
                 fscanf(arquivo,"(%f,%d,%d)", &aux_tem, &aux_com, &aux_mov);
                 soma_tempo[i][j] += aux_tem;
                 soma_comparacoes[i][j] += aux_com;
@@ -46,9 +51,9 @@ int main(){
         fclose(arq);
     }
     fclose(arquivo);
-
+    
     char **variacao_quicksort;
-    int i;
+   
     variacao_quicksort = (char**)malloc(7 * sizeof(char*));
     for(i = 0; i < 7; i++){
         variacao_quicksort[i] = (char*)malloc(64 * sizeof(char));
