@@ -9,6 +9,9 @@ int main(){
     int **soma_comparacoes, **soma_movimentacoes;
     int aux_com, aux_mov, total_arq, i, j;
     char *nome_arq;
+    char **variacao_quicksort;
+   
+    variacao_quicksort = (char**)malloc(7 * sizeof(char*));
    
 
     soma_tempo = (float**)malloc(7 * sizeof(float*));
@@ -28,7 +31,7 @@ int main(){
     total_arq = 0;
 
     while(fscanf(arquivo, "%s\n",nome_arq ) != -1){
-        printf("%s\n",nome_arq);
+        
         arq = fopen(nome_arq, "r");
         total_arq++;
         if(arq == NULL){
@@ -37,11 +40,10 @@ int main(){
         }
         i = 0;
         while(!feof(arq) && i < 7){
-            printf("%d\n", i);
-            fscanf(arquivo,"%d,", &N[i]);
+            fscanf(arq,"%d,", &N[i]);
             for(j = 0; j < 7; j++){
                 
-                fscanf(arquivo,"(%f,%d,%d)", &aux_tem, &aux_com, &aux_mov);
+                fscanf(arq,"(%f,%d,%d)", &aux_tem, &aux_com, &aux_mov);
                 soma_tempo[i][j] += aux_tem;
                 soma_comparacoes[i][j] += aux_com;
                 soma_movimentacoes[i][j] += aux_mov;
@@ -51,10 +53,8 @@ int main(){
         fclose(arq);
     }
     fclose(arquivo);
+
     
-    char **variacao_quicksort;
-   
-    variacao_quicksort = (char**)malloc(7 * sizeof(char*));
     for(i = 0; i < 7; i++){
         variacao_quicksort[i] = (char*)malloc(64 * sizeof(char));
     }
@@ -80,7 +80,7 @@ int main(){
         free(soma_tempo[i]);
         free(soma_comparacoes[i]);
         free(soma_movimentacoes[i]);
-        free(variacao_quicksort[i]);
+        //free(variacao_quicksort[i]);
     }
     free(variacao_quicksort);
     free(soma_tempo);
