@@ -102,7 +102,6 @@ int main(int argc, char *argv[]){
         tempo_execucao = clock();
         QuickSort_Iterativo(&dados, N);
         tempo_execucao =  clock() - tempo_execucao;
-        printf("Tempo execucao = %f\n", (((float)tempo_execucao) / (float)CLOCKS_PER_SEC / 1000));
         tempo = (((float)tempo_execucao) / (float)CLOCKS_PER_SEC / 1000);
         fprintf( arquivo , "(%f,%d,%d)", tempo, dados.comparacoes, dados.movimentacoes );
 
@@ -111,7 +110,7 @@ int main(int argc, char *argv[]){
 
     }
     fclose(arquivo);
-    ler_arquivo(argv[2]);       
+    //ler_arquivo(argv[2]);       
 
     //system("pause");
     return 0;

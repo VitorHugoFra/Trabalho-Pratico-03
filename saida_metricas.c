@@ -47,9 +47,19 @@ int main(){
     }
     fclose(arquivo);
 
-    char variacao_quicksort[7];
-    //variacao_quicksort = {"QuickSort Recursivo", "QuickSort Mediana 3", "QuickSort Mediana 5",
-     //"QuickSort Insercao 10", "QuickSort Insercao 100", "QuickSort Empilha Inteligente", "QuickSort Iterativo"}
+    char **variacao_quicksort;
+    int i;
+    variacao_quicksort = (char**)malloc(7 * sizeof(char*));
+    for(i = 0; i < 7; i++){
+        variacao_quicksort[i] = (char*)malloc(64 * sizeof(char));
+    }
+    variacao_quicksort[0] = "QuickSort Recursivo";
+    variacao_quicksort[1] = "QuickSort Mediana 3";
+    variacao_quicksort[2] = "QuickSort Mediana 5";
+    variacao_quicksort[3] = "QuickSort Insercao 10";
+    variacao_quicksort[4] = "QuickSort Insercao 100";
+    variacao_quicksort[5] = "QuickSort Empilha Inteligente";
+    variacao_quicksort[6] = "QuickSort Iterativo";
 
     for(i = 0; i < 7; i++){
         printf("----------- N = %d -----------\n", N[i]);
@@ -65,7 +75,9 @@ int main(){
         free(soma_tempo[i]);
         free(soma_comparacoes[i]);
         free(soma_movimentacoes[i]);
+        free(variacao_quicksort[i]);
     }
+    free(variacao_quicksort);
     free(soma_tempo);
     free(soma_comparacoes);
     free(soma_movimentacoes);
