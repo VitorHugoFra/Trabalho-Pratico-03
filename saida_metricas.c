@@ -52,6 +52,16 @@ int main(){
      //"QuickSort Insercao 10", "QuickSort Insercao 100", "QuickSort Empilha Inteligente", "QuickSort Iterativo"}
 
     for(i = 0; i < 7; i++){
+        printf("----------- N = %d -----------\n", N[i]);
+        for(j = 0; j < 7; j++){
+            printf("--------- %s --------\n", variacao_quicksort[j]);
+            printf("Media tempo execucao: %f\n", soma_tempo[i][j] / total_arq);
+            printf("Media comparacoes: %d\n", soma_comparacoes[i][j] / total_arq);
+            printf("Media movimentacoes: %d\n", soma_movimentacoes[i][j] / total_arq);
+        }
+        printf("\n");
+    }
+    for(i = 0; i < 7; i++){
         free(soma_tempo[i]);
         free(soma_comparacoes[i]);
         free(soma_movimentacoes[i]);
