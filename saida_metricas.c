@@ -5,8 +5,6 @@
 int main(){
     FILE *arquivo, *arq;
     int N[7] = {0, 0, 0, 0, 0, 0, 0};
-    //float **soma_tempo, aux_tem;
-    //int **soma_comparacoes, **soma_movimentacoes;
     int aux_com, aux_mov, total_arq, i, j;
     char *nome_arq;
     char **variacao_quicksort;
