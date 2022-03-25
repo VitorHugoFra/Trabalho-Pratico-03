@@ -9,7 +9,6 @@
  * Professora Thais R. M. Braga Silva
  * Universidade Federal de Virçosa - Campus Florestal
  * @author Aymê Faustino dos Santos - Vitor Hugo França de Paula - Iury Martins Pereira
- * @version 0.1
  * @since 25 de mar
 */
 
@@ -112,6 +111,6 @@ int main(int argc, char *argv[]){
     fclose(arquivo);
     //ler_arquivo(argv[2]);       
 
-    //system("pause");
+    system("pause");
     return 0;
 }

@@ -7,8 +7,9 @@ int main(){
     int N[7] = {0, 0, 0, 0, 0, 0, 0};
     int aux_com, aux_mov, total_arq, i, j;
     char *nome_arq;
+    // Como foi dito na documentaçaõ se estiver usando um computador com sistema linux tem de 
+    // usar essa parte do código para o programa funcionar
     //Linux
-    /*
     char **variacao_quicksort;
     float **soma_tempo, aux_tem;
     int **soma_comparacoes, **soma_movimentacoes;
@@ -21,7 +22,10 @@ int main(){
         soma_movimentacoes[i] = (int*)calloc(7, sizeof(int));
         soma_comparacoes[i] = (int*)calloc(7, sizeof(int));
     }
-    */
+
+    // Mas caso esteja usando um computador com sistema linux tem de usar essa parte do código
+    // que esta comentada para o programa funcionar
+    /*
     //Windows
     char **variacao_quicksort;
     float soma_tempo[7][7], aux_tem;
@@ -35,6 +39,7 @@ int main(){
             soma_movimentacoes[i][j] = 0;
         }
     }
+    */
 
     variacao_quicksort[0] = "QuickSort Recursivo";
     variacao_quicksort[1] = "QuickSort Mediana 3";
