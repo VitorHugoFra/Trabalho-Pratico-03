@@ -7,10 +7,25 @@ int main(){
     int N[7] = {0, 0, 0, 0, 0, 0, 0};
     int aux_com, aux_mov, total_arq, i, j;
     char *nome_arq;
+    //Linux
+    /*
+    char **variacao_quicksort;
+    float **soma_tempo, aux_tem;
+    int **soma_comparacoes, **soma_movimentacoes;
+    soma_tempo = (float**)malloc(7 * sizeof(float*));
+    soma_comparacoes = (int**)malloc(7 * sizeof(int*));
+    soma_movimentacoes = (int**)malloc(7 * sizeof(int*));
+    for(i = 0; i < 7; i++){
+        variacao_quicksort[i] = (char*)malloc(64 * sizeof(char));
+        soma_tempo[i] = (float*)calloc(7, sizeof(float));
+        soma_movimentacoes[i] = (int*)calloc(7, sizeof(int));
+        soma_comparacoes[i] = (int*)calloc(7, sizeof(int));
+    }
+    */
+    //Windows
     char **variacao_quicksort;
     float soma_tempo[7][7], aux_tem;
     int soma_comparacoes[7][7], soma_movimentacoes[7][7];
-
     variacao_quicksort = (char**)malloc(7 * sizeof(char*));
     for(i = 0; i < 7; i++){
         variacao_quicksort[i] = (char*)malloc(64 * sizeof(char));
